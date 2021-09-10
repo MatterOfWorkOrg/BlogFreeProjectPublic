@@ -10,6 +10,11 @@ import { ProfileEditComponent } from './pages/profile/components/profile-edit/pr
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: 'Profile', component: ProfileViewComponent },
+];
 
 @NgModule({
   declarations: [
@@ -24,7 +29,10 @@ import { MaterialModule } from './material.module';
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterModule.forRoot(
+      appRoutes
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
