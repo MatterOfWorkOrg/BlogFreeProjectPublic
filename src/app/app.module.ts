@@ -11,6 +11,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { RouterModule, Routes } from '@angular/router';
+import { ChartsModule } from 'ng2-charts';
 
 const appRoutes: Routes = [
   { path: 'Profile', component: ProfileViewComponent },
@@ -30,6 +31,7 @@ const appRoutes: Routes = [
     AppRoutingModule,
     MaterialModule,
     BrowserAnimationsModule,
+    ChartsModule,
     RouterModule.forRoot(
       appRoutes
     )

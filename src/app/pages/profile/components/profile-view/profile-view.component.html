@@ -11,6 +11,8 @@
   :host ::ng-deep .tagline {
     color: grey;
     font-size: 0.8rem;
+    width: fit-content !important;
+    margin: 0 !important;
 
   }
   ul li {
@@ -152,7 +154,7 @@ mat-tab-body {
          src="https://mdbootstrap.com/images/avatars/img%20(1).jpg"
        />
        <div class="row">
-         <div>
+         <div style="padding:0">
            <div class="header-text">
             <h2 class="h2-responsive">@janedoe</h2>
             <p>Jane Doe</p>
@@ -179,33 +181,28 @@ mat-tab-body {
             Topics
           </ng-template>
           <ng-container class="tab-content">
-            <!-- <div class="tab-content-data">
-              <h5>Heading</h5>
-              <div class="media-body">
-                <span class="prod-title">Digital Workplace</span>
-                <p>40% P <mat-icon class="partisan-icon"></mat-icon></p>
-                <p>60% BP <mat-icon class="bi-partisan-icon"></mat-icon></p>
-              </div>
-              <p>40% P <mat-icon class="partisan-icon"></mat-icon></p>
-              <p>60% BP <mat-icon class="bi-partisan-icon"></mat-icon></p>
-            </div>
-            <div class="tab-content-data">
-              <h5>Heading</h5>
-              <p>40% P <mat-icon class="partisan-icon"></mat-icon></p>
-              <p>60% BP <mat-icon class="bi-partisan-icon"></mat-icon></p>
-            </div>
-            <div class="tab-content-data">
-              <h5>Heading</h5>
-              <p>40% P <mat-icon class="partisan-icon"></mat-icon></p>
-              <p>60% BP <mat-icon class="bi-partisan-icon"></mat-icon></p>
-            </div> -->
             <ul aria-labelledby="megamenu" class="mf-heatmap-target border-0  shade3 show">
               <li>
                 <span class="media">
                     <div class="media-body">
                       <span class="prod-title">Articles</span>
-                      <span class="d-none d-md-block tagline">40% P <mat-icon class="partisan-icon"></mat-icon></span>
-                      <span class="d-none d-md-block tagline">60% BP <mat-icon class="bi-partisan-icon"></mat-icon></span>
+                      <div class="profile-body" style="display: flex;margin: 2%;">
+                        <div class="follwers-type" style="min-width: 35%;" style="min-width: 35%;">
+                          <span class="d-none d-md-block tagline">40% P <mat-icon class="partisan-icon"></mat-icon></span>
+                          <span class="d-none d-md-block tagline">60% BP <mat-icon class="bi-partisan-icon"></mat-icon></span>
+                        </div>
+                        <div class="chart" >
+                        <canvas
+                          style="width: 220px;height: 110px;"
+                          baseChart
+                          chartType="doughnut"
+                          [data]="doughnutChartData"
+                          [labels]="doughnutChartLabels"
+                          [options]="chartOptions"
+                          [legend]="true">
+                          </canvas>
+                        </div>
+                      </div>
                     </div>
                 </span>
               </li>
@@ -213,8 +210,23 @@ mat-tab-body {
                 <span class="media">
                     <div class="media-body">
                       <span class="prod-title">Comments</span>
-                      <span class="d-none d-md-block tagline">40% P <mat-icon class="partisan-icon"></mat-icon></span>
-                      <span class="d-none d-md-block tagline">60% BP <mat-icon class="bi-partisan-icon"></mat-icon></span>
+                      <div class="profile-body" style="display: flex;margin: 2%;">
+                        <div class="follwers-type" style="min-width: 35%;" >
+                          <span class="d-none d-md-block tagline">40% P <mat-icon class="partisan-icon"></mat-icon></span>
+                          <span class="d-none d-md-block tagline">60% BP <mat-icon class="bi-partisan-icon"></mat-icon></span>
+                        </div>
+                        <div class="chart" >
+                        <canvas
+                          style="width: 220px;height: 110px;"
+                          baseChart
+                          chartType="doughnut"
+                          [data]="doughnutChartData"
+                          [labels]="doughnutChartLabels"
+                          [options]="chartOptions"
+                          [legend]="true">
+                          </canvas>
+                        </div>
+                      </div>
                     </div>
                 </span>
               </li>
@@ -233,8 +245,23 @@ mat-tab-body {
                 <span class="media">
                     <div class="media-body">
                       <span class="prod-title">Crybtocurrency</span>
-                      <span class="d-none d-md-block tagline">40% P <mat-icon class="partisan-icon"></mat-icon></span>
-                      <span class="d-none d-md-block tagline">60% BP <mat-icon class="bi-partisan-icon"></mat-icon></span>
+                      <div class="profile-body" style="display: flex;margin: 2%;">
+                        <div class="follwers-type" style="min-width: 35%;" >
+                          <span class="d-none d-md-block tagline">40% P <mat-icon class="partisan-icon"></mat-icon></span>
+                          <span class="d-none d-md-block tagline">60% BP <mat-icon class="bi-partisan-icon"></mat-icon></span>
+                        </div>
+                        <div class="chart" >
+                        <canvas
+                          style="width: 220px;height: 110px;"
+                          baseChart
+                          chartType="doughnut"
+                          [data]="doughnutChartData"
+                          [labels]="doughnutChartLabels"
+                          [options]="chartOptions"
+                          [legend]="true">
+                          </canvas>
+                        </div>
+                      </div>
                     </div>
                 </span>
               </li>
@@ -242,8 +269,23 @@ mat-tab-body {
                 <span class="media">
                     <div class="media-body">
                       <span class="prod-title">Immigration</span>
-                      <span class="d-none d-md-block tagline">40% P <mat-icon class="partisan-icon"></mat-icon></span>
-                      <span class="d-none d-md-block tagline">60% BP <mat-icon class="bi-partisan-icon"></mat-icon></span>
+                      <div class="profile-body" style="display: flex;margin: 2%;">
+                        <div class="follwers-type" style="min-width: 35%;" >
+                          <span class="d-none d-md-block tagline">40% P <mat-icon class="partisan-icon"></mat-icon></span>
+                          <span class="d-none d-md-block tagline">60% BP <mat-icon class="bi-partisan-icon"></mat-icon></span>
+                        </div>
+                        <div class="chart" >
+                        <canvas
+                          style="width: 220px;height: 110px;"
+                          baseChart
+                          chartType="doughnut"
+                          [data]="doughnutChartData"
+                          [labels]="doughnutChartLabels"
+                          [options]="chartOptions"
+                          [legend]="true">
+                          </canvas>
+                        </div>
+                      </div>
                     </div>
                 </span>
               </li>
@@ -262,7 +304,22 @@ mat-tab-body {
                 <span class="media">
                     <div class="media-body">
                       <span class="prod-title">Partisan</span>
-                      <span class="d-none d-md-block tagline">60k Followers<mat-icon class="bi-partisan-icon"></mat-icon></span>
+                        <div class="profile-body" style="display: flex;margin: 2%;">
+                          <div class="follwers-type" style="min-width: 35%;" >
+                            <span class="d-none d-md-block tagline">60k Followers<mat-icon class="bi-partisan-icon"></mat-icon></span>
+                          </div>
+                          <div class="chart" >
+                            <canvas
+                            style="width: 220px;height: 110px;"
+                            baseChart
+                            chartType="doughnut"
+                            [data]="[50]"
+                            [labels]="['Partisan']"
+                            [options]="chartOptions"
+                            [legend]="true">
+                            </canvas>
+                          </div>
+                        </div>
                     </div>
                 </span>
               </li>
@@ -270,7 +327,22 @@ mat-tab-body {
                 <span class="media">
                     <div class="media-body">
                       <span class="prod-title">Bi-Partisan</span>
-                      <span class="d-none d-md-block tagline">40k Followers<mat-icon class="partisan-icon"></mat-icon></span>
+                      <div class="profile-body" style="display: flex;margin: 2%;">
+                        <div class="follwers-type" style="min-width: 35%;" >
+                          <span class="d-none d-md-block tagline">60k Followers<mat-icon class="bi-partisan-icon"></mat-icon></span>
+                        </div>
+                        <div class="chart" >
+                        <canvas
+                          style="width: 220px;height: 110px;"
+                          baseChart
+                          chartType="doughnut"
+                          [data]="[60]"
+                          [labels]="['Bi-Partisan']"
+                          [options]="chartOptions"
+                          [legend]="true">
+                          </canvas>
+                        </div>
+                      </div>
                     </div>
                 </span>
               </li>
