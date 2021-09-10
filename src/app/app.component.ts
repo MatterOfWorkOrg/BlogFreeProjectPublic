@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'blogFreeProject';
+  editBody = false
+
+  aboutMeActive = false
+  particularsActive = false
+  extrasActive = false
+
+  constructor() { }
+
+  doEditBody(){
+    this.editBody = !this.editBody
+  }
+
 }
