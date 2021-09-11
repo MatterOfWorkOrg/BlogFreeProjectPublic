@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { RouterModule, Routes } from '@angular/router';
 import { ChartsModule } from 'ng2-charts';
+import { ArticleCardComponent } from './components/article-card/article-card.component';
 
 const appRoutes: Routes = [
   { path: 'Profile', component: ProfileViewComponent },
@@ -24,7 +25,8 @@ const appRoutes: Routes = [
     ArticleComponent,
     SettingsComponent,
     ProfileViewComponent,
-    ProfileEditComponent
+    ProfileEditComponent,
+    ArticleCardComponent
   ],
   imports: [
     BrowserModule,

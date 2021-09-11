@@ -7,14 +7,32 @@
     box-shadow: 0 5px 30px 0 rgb(147 161 176 / 25%);
     border-radius: 10px;
   }
+  :host ::ng-deep .mat-small-header {
+    display: none;
+  }
 
   :host ::ng-deep .tagline {
     color: grey;
     font-size: 0.8rem;
     width: fit-content !important;
     margin: 0 !important;
-
   }
+
+
+  :host ::ng-deep .btn-read-more{
+    background: transparent;
+    padding: 10px 20px;
+    color: #0f123f;
+    border-bottom: 1px solid #0f123f;
+    text-decoration: none;
+   }
+   :host ::ng-deep .btn-read-more:hover{
+   background: #0f123f;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+   }
   ul li {
   font-size: 1rem;
    line-height: 1.85;
@@ -46,7 +64,7 @@
     border-radius: 10px;
   }
   .avatar {
-     margin:0 10% 0 8%;
+     margin:0 8%;
      width: 12rem;
      height: 12rem;
      border-radius: 50%;
@@ -118,28 +136,6 @@ mat-tab-body {
 :host ::ng-deep.mat-tab-label {
     background-color: transparent;
 }
-:host ::ng-deep .partisan-icon {
-  background-image: url('../assets/icons/man.png');
-  background-size: cover;
-}
-:host ::ng-deep .bi-partisan-icon {
-  background-image: url('../assets/icons/man\ \(1\).png');
-  background-size: cover;
-}
-
-:host ::ng-deep .post {
-  background-image: url('../assets/icons/post.png');
-  background-size: cover;
-  padding: 1.1rem;
-}
-:host ::ng-deep .article {
-  background-image: url('../assets/icons/blogging.png');
-  background-size: cover;
-}
-:host ::ng-deep .partisan {
-  background-image: url('../assets/icons/gender-diversity.png');
-  background-size: cover;
-}
 
 
  </style>
@@ -148,7 +144,7 @@ mat-tab-body {
  <div class="container" class="profile-layout">
    <div class="row profile-header">
    <mat-card class="example-card">
-     <mat-card-header>
+     <mat-card-header class="mat-large-header">
        <img
          class="avatar mat-elevation-z8"
          src="https://mdbootstrap.com/images/avatars/img%20(1).jpg"
@@ -170,6 +166,30 @@ mat-tab-body {
          </div>
        </div>
      </mat-card-header>
+     <mat-card-header class="mat-small-header">
+      <div class="small-header-top">
+        <img
+        class="avatar mat-elevation-z8"
+        src="https://mdbootstrap.com/images/avatars/img%20(1).jpg"
+       />
+        <div class="header-text">
+          <h4 class="h4-responsive">@janedoe</h4>
+          <p>Jane Doe</p>
+          <button mat-raised-button class="edit-btn">
+            Edit Profile
+            <mat-icon class="topMenu">edit</mat-icon>
+          </button>
+         </div>
+        </div>
+      <div class="row">
+        <div style="padding:0">
+          <div class="prfile-bio" style="margin:4%">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+               Lorem Ipsum has been the industry's standard dummy text ever since the 1500</p>
+          </div>
+        </div>
+      </div>
+    </mat-card-header>
    </mat-card>
   </div>
   <div class="row profile-body">
@@ -178,69 +198,26 @@ mat-tab-body {
         <mat-tab>
           <ng-template mat-tab-label>
             <mat-icon class="tab-icon post"></mat-icon>
-            Topics
+            Articles &nbsp;
           </ng-template>
           <ng-container class="tab-content">
-            <ul aria-labelledby="megamenu" class="mf-heatmap-target border-0  shade3 show">
+            <ul aria-labelledby="megamenu" style="height:95%; width: auto; overflow-y: scroll;padding: 1.1rem;">
               <li>
-                <span class="media">
-                    <div class="media-body">
-                      <span class="prod-title">Articles</span>
-                      <div class="profile-body" style="display: flex;margin: 2%;">
-                        <div class="follwers-type" style="min-width: 35%;" style="min-width: 35%;">
-                          <span class="d-none d-md-block tagline">40% P <mat-icon class="partisan-icon"></mat-icon></span>
-                          <span class="d-none d-md-block tagline">60% BP <mat-icon class="bi-partisan-icon"></mat-icon></span>
-                        </div>
-                        <div class="chart" >
-                        <canvas
-                          style="width: 220px;height: 110px;"
-                          baseChart
-                          chartType="doughnut"
-                          [data]="doughnutChartData"
-                          [labels]="doughnutChartLabels"
-                          [options]="chartOptions"
-                          [legend]="true">
-                          </canvas>
-                        </div>
-                      </div>
-                    </div>
-                </span>
+                <app-article-card></app-article-card>
               </li>
               <li>
-                <span class="media">
-                    <div class="media-body">
-                      <span class="prod-title">Comments</span>
-                      <div class="profile-body" style="display: flex;margin: 2%;">
-                        <div class="follwers-type" style="min-width: 35%;" >
-                          <span class="d-none d-md-block tagline">40% P <mat-icon class="partisan-icon"></mat-icon></span>
-                          <span class="d-none d-md-block tagline">60% BP <mat-icon class="bi-partisan-icon"></mat-icon></span>
-                        </div>
-                        <div class="chart" >
-                        <canvas
-                          style="width: 220px;height: 110px;"
-                          baseChart
-                          chartType="doughnut"
-                          [data]="doughnutChartData"
-                          [labels]="doughnutChartLabels"
-                          [options]="chartOptions"
-                          [legend]="true">
-                          </canvas>
-                        </div>
-                      </div>
-                    </div>
-                </span>
+                <app-article-card></app-article-card>
               </li>
-
             </ul>
           </ng-container>
         </mat-tab>
         <mat-tab>
           <ng-template mat-tab-label>
             <mat-icon class="tab-icon article"></mat-icon>
-            Posts
+            Comments
           </ng-template>
           <ng-container class="tab-content">
-            <ul aria-labelledby="megamenu" class="mf-heatmap-target border-0  shade3 show">
+            <ul aria-labelledby="megamenu" style="padding: 1rem !important;" class="mf-heatmap-target border-0  shade3 show">
               <li>
                 <span class="media">
                     <div class="media-body">
@@ -296,7 +273,7 @@ mat-tab-body {
         <mat-tab>
           <ng-template mat-tab-label>
             <mat-icon class="tab-icon partisan"></mat-icon>
-            Partisan
+            Rebuttals &nbsp;
           </ng-template>
           <ng-container class="tab-content">
             <ul aria-labelledby="megamenu" class="mf-heatmap-target border-0  shade3 show">
@@ -350,5 +327,12 @@ mat-tab-body {
           </ng-container>
         </mat-tab>
       </mat-tab-group>
+
+      <!-- <mat-tab-group>
+        <mat-tab label="Tab 1">Tab 1</mat-tab>
+        <mat-tab label="Tab 2">Tab 2</mat-tab>
+        <mat-tab label="Tab 3">Tab 3</mat-tab>
+      </mat-tab-group> -->
   </div>
  </div>
+
