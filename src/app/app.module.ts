@@ -13,6 +13,9 @@ import { MaterialModule } from './material.module';
 import { RouterModule, Routes } from '@angular/router';
 import { ChartsModule } from 'ng2-charts';
 import { ArticleCardComponent } from './components/article-card/article-card.component';
+import { RebuttalCardComponent } from './components/rebuttal-card/rebuttal-card.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: 'Profile', component: ProfileViewComponent },
@@ -26,7 +29,8 @@ const appRoutes: Routes = [
     SettingsComponent,
     ProfileViewComponent,
     ProfileEditComponent,
-    ArticleCardComponent
+    ArticleCardComponent,
+    RebuttalCardComponent
   ],
   imports: [
     BrowserModule,
@@ -34,9 +38,14 @@ const appRoutes: Routes = [
     MaterialModule,
     BrowserAnimationsModule,
     ChartsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    HttpClientJsonpModule,
     RouterModule.forRoot(
       appRoutes
-    )
+    ),
+    // MbscModule
   ],
   providers: [],
   bootstrap: [AppComponent]

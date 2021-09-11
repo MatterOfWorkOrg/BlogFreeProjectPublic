@@ -34,7 +34,7 @@
     border-radius: 5px;
    }
   ul li {
-  font-size: 1rem;
+   font-size: 1rem;
    line-height: 1.85;
    text-decoration: none;
    list-style: none;
@@ -136,7 +136,125 @@ mat-tab-body {
     background-color: transparent;
 }
 
+/*---SWIPE---*/
 
+a {
+	 text-decoration: none;
+	 color: black;
+}
+ .container {
+	 overflow: hidden;
+	 width: 100%;
+	 max-width: 650px;
+	 margin: 0 auto;
+	 padding: 2rem 1rem;
+}
+ .col {
+	 padding: 1rem;
+}
+ @media (min-width: 650px) {
+	 .col {
+		 width: 50%;
+     margin: 3% 25%;
+
+	}
+	 .col:nth-of-type(2n+1) {
+		 clear: left;
+	}
+}
+ .card {
+	 display: block;
+	 text-align: center;
+	 color: #eee;
+}
+ .card .content {
+	 padding: 4rem 1rem;
+}
+ .card .title {
+	 font-size: 1.25rem;
+	 background-color: gray;
+	 border-radius: 3px;
+	 padding: 0.5rem;
+}
+
+ .card-10:before, .card-10:after {
+	 border-radius: 5px;
+}
+ .card-10:before {
+	 background-color: rgba(201, 191, 200, 1) !important;
+}
+ .card-10 .title, .card-10:after {
+	 background-color: rgba(166, 150, 164, 1) !important;
+}
+ [class*='stacked--'] {
+	 position: relative;
+	 transition: transform 0.3s ease-in-out;
+	 will-change: transform;
+}
+ [class*='stacked--']:before, [class*='stacked--']:after {
+	 content: '';
+	 position: absolute;
+	 top: 0;
+	 right: 0;
+	 bottom: 0;
+	 left: 0;
+	 background-color: currentColor;
+	 transition: transform 0.3s ease-in-out;
+	 will-change: transform;
+}
+ [class*='stacked--']:before {
+	 z-index: -1;
+}
+ [class*='stacked--']:after {
+	 z-index: -2;
+}
+
+ .stacked--down-left:hover {
+	 transform: translate(-25px, 25px);
+}
+ .stacked--down-left:hover:before {
+	 transform: translate(25px, -25px);
+}
+ .stacked--down-left:hover:after {
+	 transform: translate(35px, -35px);
+}
+/* .stack-card {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  padding: 2rem;
+  border-radius: 10px;
+} */
+.stack-container {
+  margin:10%;
+  position: relative;
+  width: 600px;
+  height: 300px;
+  transform-style: preserve-3d;
+}
+.stack-container > .stack-card {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+@keyframes animate {
+  0%
+  {
+    transform:perspective(500px) translate3d(0,0,0);
+  }
+  25%
+  {
+    transform:perspective(500px) translate3d(-50px,-50px,-50px);
+  }
+  35%,100%
+  {
+    transform:perspective(500px) translate3d(-600px,-50px,-50px);
+  }
+}
  </style>
 
 <!-- /.navbar -->
@@ -217,7 +335,7 @@ mat-tab-body {
           </ng-template>
           <ng-container class="tab-content">
             <ul aria-labelledby="megamenu" style="padding: 1rem !important;" class="mf-heatmap-target border-0  shade3 show">
-              <li>
+              <!-- <li>
                 <span class="media">
                     <div class="media-body">
                       <span class="prod-title">Crybtocurrency</span>
@@ -264,8 +382,16 @@ mat-tab-body {
                       </div>
                     </div>
                 </span>
-              </li>
-
+              </li> -->
+              <div class="stack-swipe-container">
+                <div class="col">
+                  <a href="#" class="card card-7 stacked--down-left">
+                      <div class="content">
+                          <code class="title">Article Card</code>
+                      </div>
+                  </a>
+              </div>
+              </div>
             </ul>
           </ng-container>
         </mat-tab>
@@ -275,8 +401,8 @@ mat-tab-body {
             Rebuttals &nbsp;
           </ng-template>
           <ng-container class="tab-content">
-            <ul aria-labelledby="megamenu" class="mf-heatmap-target border-0  shade3 show">
-              <li>
+            <ul aria-labelledby="megamenu" style="padding:0% !important;padding: 0 !important;" class="mf-heatmap-target border-0 shade3 show">
+              <!-- <li class="stack">
                 <span class="media">
                     <div class="media-body">
                       <span class="prod-title">Partisan</span>
@@ -299,7 +425,7 @@ mat-tab-body {
                     </div>
                 </span>
               </li>
-              <li>
+              <li class="stack">
                 <span class="media">
                     <div class="media-body">
                       <span class="prod-title">Bi-Partisan</span>
@@ -321,7 +447,11 @@ mat-tab-body {
                       </div>
                     </div>
                 </span>
-              </li>
+              </li> -->
+            <div class="stack-container">
+              <app-rebuttal-card class="stack-card card-1" style="margin:1%;"></app-rebuttal-card>
+              <app-rebuttal-card class="stack-card card-2" style="margin:6% -4%;"></app-rebuttal-card>
+            </div>
             </ul>
           </ng-container>
         </mat-tab>
