@@ -10,6 +10,9 @@
   :host ::ng-deep .mat-small-header {
     display: none;
   }
+  .stack-card:hover{
+    cursor: pointer;
+  }
 
   :host ::ng-deep .tagline {
     color: grey;
@@ -83,6 +86,9 @@
   flex-direction: column;
   overflow: hidden;
 }
+mat-tab-body-content  {
+  overflow: hidden !important;
+}
 
 :host ::ng-deep .mat-tab-labels {
   flex-direction: column;
@@ -104,6 +110,7 @@ mat-tab-group {
 
 :host ::ng-deep .mat-tab-header {
   width: 31%;
+  border:1px solid #aaa;
 }
 
 :host ::ng-deep .mat-tab-body-wrapper {
@@ -111,14 +118,15 @@ mat-tab-group {
   display: flex;
   margin: 0% !important;
   flex-direction: column;
-  background-color: #fcfcfc;
   overflow: hidden;
+  border:1px solid #aaa;
 }
 
-mat-tab-body {
+.mat-tab-body {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  border:1px solid #aaa !important;
 }
 
 :host ::ng-deep mat-ink-bar {
@@ -175,7 +183,6 @@ a {
 	 font-size: 1.25rem;
 	 background-color: gray;
 	 border-radius: 3px;
-	 padding: 0.5rem;
 }
 
  .card-10:before, .card-10:after {
@@ -219,13 +226,6 @@ a {
  .stacked--down-left:hover:after {
 	 transform: translate(35px, -35px);
 }
-/* .stack-card {
-  display: flex;
-  position: relative;
-  flex-direction: row;
-  padding: 2rem;
-  border-radius: 10px;
-} */
 .stack-container {
   margin:10%;
   position: relative;
@@ -318,13 +318,13 @@ a {
             <mat-icon class="tab-icon post"></mat-icon>
             Articles &nbsp;
           </ng-template>
-          <ng-container class="tab-content">
-            <ul aria-labelledby="megamenu" style="height:auto;padding: 1.1rem;">
+          <ng-container class="tab-content container-right" style="border:1px solid #aaa !important;">
+            <ul aria-labelledby="megamenu" style="height:auto;padding: 0 !important;background-color:#ffff;overflow: hidden;">
               <li>
-                <app-article-card></app-article-card>
+                <app-article-card [style]="style"></app-article-card>
               </li>
               <li>
-                <app-article-card></app-article-card>
+                <app-article-card [style]="style"></app-article-card>
               </li>
             </ul>
           </ng-container>
@@ -384,7 +384,7 @@ a {
                     </div>
                 </span>
               </li> -->
-              <div class="stack-swipe-container">
+              <!-- <div class="stack-swipe-container">
                 <div class="col">
                   <a href="#" class="card card-7 stacked--down-left">
                       <div class="content">
@@ -392,7 +392,52 @@ a {
                       </div>
                   </a>
               </div>
-              </div>
+              </div> -->
+              <div class="row profile-header">
+                <mat-card class="example-card">
+                  <mat-card-header class="mat-large-header">
+                    <div class="row">
+                      <div style="padding:0">
+                        <div class="header-text">
+                         <h2 class="h2-responsive">Lorem Ipsum is simply</h2>
+                         <p>Jane Doe</p>
+                        </div>
+                        <div class="prfile-bio">
+                          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                             Lorem Ipsum has been the industry's standard dummy text ever since the 1500</p>
+                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                              Lorem Ipsum is simply dummy text of the printing
+                               Lorem Ipsum has been the industry's standard dummy text ever since the 1500</p>
+                               <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </mat-card-header>
+                  <mat-card-header class="mat-small-header">
+                   <div class="small-header-top">
+                     <img
+                     class="avatar mat-elevation-z8"
+                     src="https://mdbootstrap.com/images/avatars/img%20(1).jpg"
+                    />
+                     <div class="header-text">
+                       <h4 class="h4-responsive">@janedoe</h4>
+                       <p>Jane Doe</p>
+                      </div>
+                     </div>
+                   <div class="row">
+                     <div style="padding:0">
+                       <div class="prfile-bio" style="margin:4%">
+                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500</p>
+                       </div>
+                     </div>
+                   </div>
+                 </mat-card-header>
+                </mat-card>
+               </div>
             </ul>
           </ng-container>
         </mat-tab>
@@ -452,19 +497,13 @@ a {
             <div class="stack-container">
               <app-rebuttal-card *ngFor="let rebutal of rebuttalList;let i = index" [attr.data-index]="i"
                class="stack-card card-1" [title]="rebutal.title" [ngStyle]="{'margin-top':rebutal.config.marginsX+'%','margin-bottom':rebutal.config.marginsX+'%',
-               'margin-left':rebutal.config.marginsY+'%','margin-right':rebutal.config.marginsY+'%'}"(click) ="swipeStack(rebutal)">
+               'margin-left':rebutal.config.marginsY+'%','margin-right':rebutal.config.marginsY+'%'}"(click) ="swipeStack(rebutal,i)">
               </app-rebuttal-card>
             </div>
             </ul>
           </ng-container>
         </mat-tab>
       </mat-tab-group>
-
-      <!-- <mat-tab-group>
-        <mat-tab label="Tab 1">Tab 1</mat-tab>
-        <mat-tab label="Tab 2">Tab 2</mat-tab>
-        <mat-tab label="Tab 3">Tab 3</mat-tab>
-      </mat-tab-group> -->
   </div>
  </div>
 

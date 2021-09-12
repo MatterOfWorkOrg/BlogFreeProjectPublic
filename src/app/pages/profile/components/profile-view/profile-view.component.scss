@@ -112,6 +112,17 @@ mat-tab-body {
 // .profile-layout {
 //   /*----PROFILE SIDE BAR HORIZONTAL VIEW---*/
 .profile-layout {
+  .profile-body {
+    mat-tab-group {
+      .mat-tab-body-wrapper {
+        mat-tab-body {
+          mat-tab-body-content {
+            overflow: hidden !important;
+          }
+        }
+      }
+    }
+  }
   @media (max-width: 500px) {
     &.profile-layout {
       font-size: 0.9rem;

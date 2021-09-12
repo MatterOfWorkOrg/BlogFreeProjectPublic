@@ -8,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class DiscussionComponent implements OnInit {
 
   constructor() { }
-
+showDetailsPage=false;
   ngOnInit(): void {
+    this.showDetailsPage=false;
   }
-
+onClick() {
+  this.showDetailsPage=true;
+}
 }

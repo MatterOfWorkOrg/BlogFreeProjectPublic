@@ -17,13 +17,12 @@ $color_grey_dark: #a2a2a2;
 .blog-card {
   display: flex;
   flex-direction: column;
-  margin: 1rem auto;
   box-shadow: 0 3px 7px -1px rgba(#000, 0.1);
   margin-bottom: 1.6%;
   background: $color_white;
   line-height: 1.4;
   font-family: sans-serif;
-  border-radius: 5px;
+  border-radius: 0px;
   overflow: hidden;
   z-index: 0;
   a {
@@ -130,7 +129,7 @@ $color_grey_dark: #a2a2a2;
 
   @media (min-width: 1050px) {
     flex-direction: row;
-    max-width: 700px;
+    max-width: 1000px;
     .meta {
       flex-basis: 48%;
       height: auto;

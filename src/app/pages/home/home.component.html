@@ -1,1 +1,40 @@
-<p>home works!</p>
+<div class="container">
+  <div class="row profile-body">
+    <!-- <div class="profile-list"> -->
+     <mat-tab-group animationDuration="0ms" [@.disabled]="true">
+       <mat-tab>
+         <ng-template mat-tab-label>
+           <mat-icon class="tab-icon post"></mat-icon>
+           Home &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         </ng-template>
+         <ng-container class="tab-content">
+           <ul aria-labelledby="megamenu" style="height:auto;padding: 1.1rem; margin:3% 5%;">
+             <li>
+               <app-article-card  [style]="style"></app-article-card>
+             </li>
+             <li>
+               <app-article-card [style]="style"></app-article-card>
+             </li>
+           </ul>
+         </ng-container>
+       </mat-tab>
+
+       <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="tab-icon discussion"></mat-icon>
+          Discussion
+        </ng-template>
+        <ng-container class="tab-content">
+          <ul aria-labelledby="megamenu" style="height:auto;padding: 1.1rem;">
+            <li>
+              <app-discussion></app-discussion>
+            </li>
+
+          </ul>
+        </ng-container>
+      </mat-tab>
+
+     </mat-tab-group>
+
+  </div>
+  </div>

@@ -34,20 +34,18 @@ export class ProfileViewComponent implements OnInit {
         'marginsX':0,
           'marginsY':0
       }
-    },
-    {
-      'title':'Article Title 4',
-      'config': {
-        'order': 4,
-        'marginsX':0,
-          'marginsY':0
-      }
-    },
+    }
   ]
+
+  style:any = {
+    'minHeight': 'auto'
+  }
   constructor() { }
   ngOnInit(): void {
+    this.rebuttalList =  this.rebuttalList.reverse();
      this.generateDynamicMargins();
      console.log(this.rebuttalList);
+
   }
   generateDynamicMargins() {
     this.rebuttalList = this.rebuttalList.map((data:any,index) :any => {
@@ -63,7 +61,10 @@ export class ProfileViewComponent implements OnInit {
       }
     })
   }
-  swipeStack(rebuttal:any) {
-    console.log(rebuttal);
+  swipeStack(rebuttal:any,index:number) {
+    let temp = this.rebuttalList[this.rebuttalList.length-1];
+    this.rebuttalList[this.rebuttalList.length-1] = rebuttal;
+    this.rebuttalList[index] = temp;
+    this.generateDynamicMargins();
   }
 }

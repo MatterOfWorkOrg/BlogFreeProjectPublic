@@ -1,0 +1,115 @@
+.profile-body {
+  @media (max-width: 1050px) {
+    &.profile-body {
+      ::ng-deep {
+        .mat-tab-labels {
+          flex-direction: row;
+        }
+        .mat-tab-group {
+          flex-direction: column;
+        }
+        mat-tab-header {
+          display: flex;
+          /* overflow: hidden; */
+          position: relative;
+          flex-shrink: 0;
+          width: 100%;
+          .mat-tab-label.mat-tab-label-active {
+            background-color: transparent;
+            color: #1d2b36;
+            background-color: #fcfcfc;
+            border-right: none;
+            border-bottom: 5px solid black;
+          }
+        }
+      }
+    }
+  }
+}
+
+ul li {
+  font-size: 1rem;
+  line-height: 1.85;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  outline: 0 !important;
+  margin: 0;
+  padding: 0;
+  display: list-item;
+  text-align: -webkit-match-parent;
+  color: #1d2b36;
+}
+
+:host ::ng-deep .mat-tab-labels {
+  flex-direction: column;
+}
+:host ::ng-deep .tab-icon {
+  padding: 1rem;
+  margin: 1.4rem;
+}
+
+mat-tab-group {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  // padding: 5% !important;
+  padding-top: 5% !important;
+  padding-bottom: 5% !important;
+  // margin:2% auto;
+  margin-top: 2% auto;
+  margin-bottom: 2% auto;
+  box-shadow: 0 5px 30px 0 rgb(147 161 176 / 25%);
+  border-radius: 10px;
+}
+
+// :host ::ng-deep .mat-tab-header {
+//   width: 10%;
+// }
+
+:host ::ng-deep .mat-tab-body-wrapper {
+  flex-grow: 1;
+  display: flex;
+  margin: 0% !important;
+  flex-direction: column;
+  background-color: #fcfcfc;
+  overflow: hidden;
+}
+
+mat-tab-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+:host ::ng-deep mat-ink-bar {
+  display: none;
+}
+
+/* Styles for the active tab label */
+:host ::ng-deep.mat-tab-label.mat-tab-label-active {
+  background-color: transparent;
+  color: #1d2b36;
+  background-color: #fcfcfc;
+  border-right: 5px solid black;
+}
+/* Styles for the active tab label */
+:host ::ng-deep.mat-tab-label {
+  background-color: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+:host ::ng-deep .post {
+  background-image: url("../../../assets/icons/home-icon.png");
+  background-size: cover;
+  padding: 1.1rem;
+}
+
+:host ::ng-deep .discussion {
+  background-image: url("../../../assets/icons/discussion-icon.png");
+  background-size: cover;
+  padding: 1.1rem;
+}

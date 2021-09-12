@@ -22,6 +22,8 @@ import { DiscussionDetailComponent } from './pages/discussion-detail/discussion-
 
 const appRoutes: Routes = [
   { path: 'Profile', component: ProfileViewComponent },
+  { path: 'Home', component: HomeComponent},
+  { path: 'Detail', component: DiscussionDetailComponent},
 ];
 
 @NgModule({
