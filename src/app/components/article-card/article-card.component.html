@@ -26,23 +26,30 @@
     background-position: center;
     background-size: cover;
    }
-   .block:hover{
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px 0 0 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-position: center;
-    background-size: cover;
-   }
-   :host ::ng-deep .overlay{
+   a, u {
+    text-decoration: none;
+  }
+  .p-text {
+    margin: 0 !important;
+  }
+  .overlay-text {
+    color:#000 !important;
+    margin: 0 !important;
+    font-size:0.9rem;
+    font-weight: 400;
+  }
+   .overlay{
    z-index: 5;
     width: 80%;
     height: 100%;
+    background-color: #8b878780;
+    transform: rotate(
+45deg) scaleY(2) scaleX(0);
+    transition: all .3s cubic-bezier(.68,-.55,.265,1.55);
+    border-left: #fff 2px solid;
+    border-right: #fff 2px solid;
    }
-   :host ::ng-deep .overlay:hover {
+   /* :host ::ng-deep .overlay:hover {
    z-index: 5;
     width: 80%;
     height: 100%;
@@ -51,45 +58,56 @@
     transition: all .3s cubic-bezier(.68,-.55,.265,1.55);
     border-left: #fff 2px solid;
     border-right: #fff 2px solid;
-   }
-   :host ::ng-deep .block--text{
-   position: absolute;
-    top: 25%;
-    width: 100%;
+   } */
+   /* .overlay .block--text {
+    visibility: hidden;
+   } */
+
+   .block:hover .overlay {
+    z-index: 5;
+    width: 80%;
     height: 100%;
-    padding: 20px;
-    color: #faebd7;
-    transform-origin: bottom center;
-    z-index: 100;
-    opacity: 0;
-    transition: all .3s .2s ease-in;
+    background-color: #8b878780;
+    transform: rotate(45deg) scaleY(2) scaleX(1);
+    border-left: #fff 2px solid;
+    border-right: #fff 2px solid;
    }
-   .text-head{
-   text-align: center;
+   :host ::ng-deep .text-head {
+    text-align: center;
     font-weight: 800;
     letter-spacing: 2px;
     padding-bottom: 15px;
-    font-size: 24px;
+    font-size: 30px;
     text-transform: uppercase;
     color: #000;
     cursor: pointer;
    }
-   .block:hover .overlay {
-    transform: rotate(45deg) scaleY(2) scaleX(1);
-   }
-   /* :host ::ng-deep .block--text{
+   :host ::ng-deep .block--text{
    position: absolute;
-    top: 25%;
+    top: 7%;
+    left:18%;
     width: 100%;
     height: 100%;
     padding: 20px;
-    color: #faebd7;
+    color: #111;
     transform-origin: bottom center;
     transition: all .3s ease-in;
     z-index: 100;
     opacity: 0;
-    transition: all .3s .2s ease-in;
-   } */
+    visibility: hidden;
+   }
+   .block:hover .block--text {
+     opacity: 1 !important;
+     visibility: visible !important;
+   }
+
+   .text--quote {
+    font-size:1rem;
+    list-style: none;
+    text-decoration: none;
+    padding-left:0px;
+    color: #000;
+   }
 </style>
 <div class="blog-card">
   <!-- <div class="meta">
@@ -106,12 +124,19 @@
   </div> -->
   <div _ngcontent-mow-c53="" class="block meta card" style="background-image: url(&quot;https://perspectiveblob.blob.core.windows.net/images/13/pfp/5F136872-83DD-4230-8A8D-6DF4062F94C5.jpeg&quot;);"
   ><div _ngcontent-mow-c53="" class="overlay"></div>
-  <div _ngcontent-mow-c53="" class="block--text" style="display: none;"><div _ngcontent-mow-c53="" class="text--head" tabindex="0">By: sandra3314</div><!---->
+  <div _ngcontent-mow-c53="" class="block--text"><h5 style="font-weight:600;text-transform: uppercase;" _ngcontent-mow-c53="" class="text--head" tabindex="0">By: sandra3314</h5>
   <div _ngcontent-mow-c53="" class="text--quote ng-star-inserted">
-    <p _ngcontent-mow-c53="">9/11/2021</p><p _ngcontent-mow-c53="" class="ng-star-inserted">
-      <a _ngcontent-mow-c53="" href="/discussion-hub/8">Perspective</a>
-    </p><p _ngcontent-mow-c53=""><a _ngcontent-mow-c53="" routerlink="/rebuttal-landing" href="/rebuttal-landing">
-      Create Rebuttal?</a></p>
+    <p class="overlay-text" class="ng-star-inserted">
+      <a class="overlay-text" _ngcontent-mow-c53="">9/11/2021</a>
+    </p>
+      <p class="overlay-text" _ngcontent-mow-c53=""><a class="overlay-text" _ngcontent-mow-c53=""
+        routerlink="/rebuttal-landing" href="/rebuttal-landing">
+        Perspective</a>
+      </p>
+      <p class="overlay-text" _ngcontent-mow-c53=""><a class="overlay-text" _ngcontent-mow-c53=""
+         routerlink="/rebuttal-landing" href="/rebuttal-landing">
+        Create Rebuttal?</a>
+      </p>
   </div>
   </div>
   </div>
