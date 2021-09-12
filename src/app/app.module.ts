@@ -16,6 +16,9 @@ import { ArticleCardComponent } from './components/article-card/article-card.com
 import { RebuttalCardComponent } from './components/rebuttal-card/rebuttal-card.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './pages/home/home.component';
+import { DiscussionComponent } from './pages/discussion/discussion.component';
+import { DiscussionDetailComponent } from './pages/discussion-detail/discussion-detail.component';
 
 const appRoutes: Routes = [
   { path: 'Profile', component: ProfileViewComponent },
@@ -30,7 +33,10 @@ const appRoutes: Routes = [
     ProfileViewComponent,
     ProfileEditComponent,
     ArticleCardComponent,
-    RebuttalCardComponent
+    RebuttalCardComponent,
+    HomeComponent,
+    DiscussionComponent,
+    DiscussionDetailComponent
   ],
   imports: [
     BrowserModule,

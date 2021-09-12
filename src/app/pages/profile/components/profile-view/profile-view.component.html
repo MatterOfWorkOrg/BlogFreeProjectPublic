@@ -450,10 +450,10 @@ a {
                 </span>
               </li> -->
             <div class="stack-container">
-              <app-rebuttal-card class="stack-card card-1" style="margin:0%;"></app-rebuttal-card>
-              <app-rebuttal-card class="stack-card card-2" style="margin:4% -4%;"></app-rebuttal-card>
-              <app-rebuttal-card class="stack-card card-3" style="margin:8% -8%;"></app-rebuttal-card>
-              <app-rebuttal-card class="stack-card card-4" style="margin:12% -12%;"></app-rebuttal-card>
+              <app-rebuttal-card *ngFor="let rebutal of rebuttalList;let i = index" [attr.data-index]="i"
+               class="stack-card card-1" [title]="rebutal.title" [ngStyle]="{'margin-top':rebutal.config.marginsX+'%','margin-bottom':rebutal.config.marginsX+'%',
+               'margin-left':rebutal.config.marginsY+'%','margin-right':rebutal.config.marginsY+'%'}"(click) ="swipeStack(rebutal)">
+              </app-rebuttal-card>
             </div>
             </ul>
           </ng-container>
