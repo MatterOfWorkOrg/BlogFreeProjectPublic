@@ -112,6 +112,7 @@ mat-tab-group {
   margin: 0% !important;
   flex-direction: column;
   background-color: #fcfcfc;
+  overflow: hidden;
 }
 
 mat-tab-body {
@@ -229,7 +230,7 @@ a {
   margin:10%;
   position: relative;
   width: 600px;
-  height: 300px;
+  height: 400px;
   transform-style: preserve-3d;
 }
 .stack-container > .stack-card {
@@ -401,7 +402,7 @@ a {
             Rebuttals &nbsp;
           </ng-template>
           <ng-container class="tab-content">
-            <ul aria-labelledby="megamenu" style="padding:0% !important;padding: 0 !important;" class="mf-heatmap-target border-0 shade3 show">
+            <ul aria-labelledby="megamenu" style="padding:0% !important;padding: 0 !important;" class="mf-heatmap-target">
               <!-- <li class="stack">
                 <span class="media">
                     <div class="media-body">
@@ -449,8 +450,10 @@ a {
                 </span>
               </li> -->
             <div class="stack-container">
-              <app-rebuttal-card class="stack-card card-1" style="margin:1%;"></app-rebuttal-card>
-              <app-rebuttal-card class="stack-card card-2" style="margin:6% -4%;"></app-rebuttal-card>
+              <app-rebuttal-card class="stack-card card-1" style="margin:0%;"></app-rebuttal-card>
+              <app-rebuttal-card class="stack-card card-2" style="margin:4% -4%;"></app-rebuttal-card>
+              <app-rebuttal-card class="stack-card card-3" style="margin:8% -8%;"></app-rebuttal-card>
+              <app-rebuttal-card class="stack-card card-4" style="margin:12% -12%;"></app-rebuttal-card>
             </div>
             </ul>
           </ng-container>
