@@ -110,7 +110,6 @@ mat-tab-group {
 
 :host ::ng-deep .mat-tab-header {
   width: 31%;
-  border:1px solid #aaa;
 }
 
 :host ::ng-deep .mat-tab-body-wrapper {
@@ -119,14 +118,13 @@ mat-tab-group {
   margin: 0% !important;
   flex-direction: column;
   overflow: hidden;
-  border:1px solid #aaa;
 }
 
 .mat-tab-body {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  border:1px solid #aaa !important;
+  /* border:1px solid #aaa !important; */
 }
 
 :host ::ng-deep mat-ink-bar {
@@ -184,39 +182,6 @@ a {
 	 background-color: gray;
 	 border-radius: 3px;
 }
-
- .card-10:before, .card-10:after {
-	 border-radius: 5px;
-}
- .card-10:before {
-	 background-color: rgba(201, 191, 200, 1) !important;
-}
- .card-10 .title, .card-10:after {
-	 background-color: rgba(166, 150, 164, 1) !important;
-}
- [class*='stacked--'] {
-	 position: relative;
-	 transition: transform 0.3s ease-in-out;
-	 will-change: transform;
-}
- [class*='stacked--']:before, [class*='stacked--']:after {
-	 content: '';
-	 position: absolute;
-	 top: 0;
-	 right: 0;
-	 bottom: 0;
-	 left: 0;
-	 background-color: currentColor;
-	 transition: transform 0.3s ease-in-out;
-	 will-change: transform;
-}
- [class*='stacked--']:before {
-	 z-index: -1;
-}
- [class*='stacked--']:after {
-	 z-index: -2;
-}
-
  .stacked--down-left:hover {
 	 transform: translate(-25px, 25px);
 }
@@ -229,8 +194,8 @@ a {
 .stack-container {
   margin:10%;
   position: relative;
-  width: 600px;
-  height: 400px;
+  min-width: 600px;
+  min-height: 400px;
   transform-style: preserve-3d;
 }
 .stack-container > .stack-card {
@@ -240,6 +205,14 @@ a {
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
+}
+
+.stack-hover {
+  transform:translate3d(4rem,-4rem,4rem);
+  transition: transform .1s ease-in-out;
+}
+.stack-hover-removed {
+  transform:translate3d(0rem,0rem,0rem);
 }
 
 @keyframes animate {
@@ -318,7 +291,7 @@ a {
             <mat-icon class="tab-icon post"></mat-icon>
             Articles &nbsp;
           </ng-template>
-          <ng-container class="tab-content container-right" style="border:1px solid #aaa !important;">
+          <ng-container class="tab-content container-right">
             <ul aria-labelledby="megamenu" style="height:auto;padding: 0 !important;background-color:#ffff;overflow: hidden;">
               <li>
                 <app-article-card [style]="style"></app-article-card>
@@ -336,108 +309,79 @@ a {
           </ng-template>
           <ng-container class="tab-content">
             <ul aria-labelledby="megamenu" style="padding: 1rem !important;" class="mf-heatmap-target border-0  shade3 show">
-              <!-- <li>
-                <span class="media">
-                    <div class="media-body">
-                      <span class="prod-title">Crybtocurrency</span>
-                      <div class="profile-body" style="display: flex;margin: 2%;">
-                        <div class="follwers-type" style="min-width: 35%;" >
-                          <span class="d-none d-md-block tagline">40% P <mat-icon class="partisan-icon"></mat-icon></span>
-                          <span class="d-none d-md-block tagline">60% BP <mat-icon class="bi-partisan-icon"></mat-icon></span>
-                        </div>
-                        <div class="chart" >
-                        <canvas
-                          style="width: 220px;height: 110px;"
-                          baseChart
-                          chartType="doughnut"
-                          [data]="doughnutChartData"
-                          [labels]="doughnutChartLabels"
-                          [options]="chartOptions"
-                          [legend]="true">
-                          </canvas>
-                        </div>
-                      </div>
-                    </div>
-                </span>
-              </li>
-              <li>
-                <span class="media">
-                    <div class="media-body">
-                      <span class="prod-title">Immigration</span>
-                      <div class="profile-body" style="display: flex;margin: 2%;">
-                        <div class="follwers-type" style="min-width: 35%;" >
-                          <span class="d-none d-md-block tagline">40% P <mat-icon class="partisan-icon"></mat-icon></span>
-                          <span class="d-none d-md-block tagline">60% BP <mat-icon class="bi-partisan-icon"></mat-icon></span>
-                        </div>
-                        <div class="chart" >
-                        <canvas
-                          style="width: 220px;height: 110px;"
-                          baseChart
-                          chartType="doughnut"
-                          [data]="doughnutChartData"
-                          [labels]="doughnutChartLabels"
-                          [options]="chartOptions"
-                          [legend]="true">
-                          </canvas>
-                        </div>
-                      </div>
-                    </div>
-                </span>
-              </li> -->
-              <!-- <div class="stack-swipe-container">
-                <div class="col">
-                  <a href="#" class="card card-7 stacked--down-left">
-                      <div class="content">
-                          <code class="title">Article Card</code>
-                      </div>
-                  </a>
-              </div>
-              </div> -->
-              <div class="row profile-header">
-                <mat-card class="example-card">
+              <div class="row profile-header" style="display: flex;margin:4% 2%;">
+                <div class="comment-top-section">
+                <mat-card class="example-card" style="display: block;">
                   <mat-card-header class="mat-large-header">
                     <div class="row">
                       <div style="padding:0">
                         <div class="header-text">
-                         <h2 class="h2-responsive">Lorem Ipsum is simply</h2>
-                         <p>Jane Doe</p>
+                         <h4 class="h4-responsive">Lorem Ipsum is simply</h4>
+                        </div>
+                        <div class="button-container">
+                          <button mat-raised-button color="primary" style="border-radius: 10px;margin:auto 1%;">Topic</button>
+                          <button mat-raised-button color="primary" style="border-radius: 10px;">Tone</button>
                         </div>
                         <div class="prfile-bio">
-                          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                          <p style="font-size: 1rem;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                             Lorem Ipsum has been the industry's standard dummy text ever since the 1500</p>
-                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                             Lorem Ipsum has been the industry's standard dummy text ever since the 1500
+                          </p>
+                          <p style="font-size: 1rem;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                               Lorem Ipsum is simply dummy text of the printing
-                               Lorem Ipsum has been the industry's standard dummy text ever since the 1500</p>
-                               <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                               Lorem Ipsum has been the industry's standard dummy text ever since the 1500
+                          </p>
+                          <p style="font-size: 1rem;">LoremLorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                          </p>
                         </div>
                       </div>
                     </div>
                   </mat-card-header>
-                  <mat-card-header class="mat-small-header">
-                   <div class="small-header-top">
-                     <img
-                     class="avatar mat-elevation-z8"
-                     src="https://mdbootstrap.com/images/avatars/img%20(1).jpg"
-                    />
-                     <div class="header-text">
-                       <h4 class="h4-responsive">@janedoe</h4>
-                       <p>Jane Doe</p>
-                      </div>
-                     </div>
-                   <div class="row">
-                     <div style="padding:0">
-                       <div class="prfile-bio" style="margin:4%">
-                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500</p>
-                       </div>
-                     </div>
-                   </div>
-                 </mat-card-header>
                 </mat-card>
-               </div>
+              </div>
+              <div class="comment-bottom-section" style="display: flex;">
+                <mat-card class="example-card" style="display: block;">
+                  <mat-card-header class="mat-large-header">
+                    <div class="row">
+                      <div style="padding:0">
+                        <div class="header-text">
+                          <div class="header-coment-bottom" style="display: flex;">
+                            <img class="avatar mat-elevation-z8" style="width:3.5rem;height:3.5rem;" src="https://mdbootstrap.com/images/avatars/img%20(1).jpg"/>
+                            <h6 class="h4-responsive">Lorem Ipsum is simply</h6>
+                          </div>
+                          <p>Jane Doe</p>
+                        </div>
+                        <div class="prfile-bio">
+                          <p style="font-size: 1rem;">LoremLorem Ipsum is simply dummy text of the printing and typesetting
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </mat-card-header>
+                </mat-card>
+                <mat-card class="example-card comment-top-sectop" style="display: block;">
+                  <mat-card-header class="mat-large-header">
+                    <div class="row">
+                      <div style="padding:0">
+                        <div class="header-text">
+                          <div class="header-coment-bottom" style="display: flex;">
+                            <img class="avatar mat-elevation-z8" style="width:3.5rem;height:3.5rem;"  src="https://mdbootstrap.com/images/avatars/img%20(1).jpg"/>
+                            <h6 class="h4-responsive">Lorem Ipsum is simply</h6>
+                          </div>
+                          <p>Jane Doe</p>
+                        </div>
+                        <div class="prfile-bio">
+                          <p style="font-size: 1rem;">LoremLorem Ipsum is simply dummy text of the printing and typesetting
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </mat-card-header>
+                </mat-card>
+              </div>
+              </div>
             </ul>
           </ng-container>
         </mat-tab>
@@ -446,58 +390,15 @@ a {
             <mat-icon class="tab-icon partisan"></mat-icon>
             Rebuttals &nbsp;
           </ng-template>
-          <ng-container class="tab-content">
-            <ul aria-labelledby="megamenu" style="padding:0% !important;padding: 0 !important;" class="mf-heatmap-target">
-              <!-- <li class="stack">
-                <span class="media">
-                    <div class="media-body">
-                      <span class="prod-title">Partisan</span>
-                        <div class="profile-body" style="display: flex;margin: 2%;">
-                          <div class="follwers-type" style="min-width: 35%;" >
-                            <span class="d-none d-md-block tagline">60k Followers<mat-icon class="bi-partisan-icon"></mat-icon></span>
-                          </div>
-                          <div class="chart" >
-                            <canvas
-                            style="width: 220px;height: 110px;"
-                            baseChart
-                            chartType="doughnut"
-                            [data]="[50]"
-                            [labels]="['Partisan']"
-                            [options]="chartOptions"
-                            [legend]="true">
-                            </canvas>
-                          </div>
-                        </div>
-                    </div>
-                </span>
-              </li>
-              <li class="stack">
-                <span class="media">
-                    <div class="media-body">
-                      <span class="prod-title">Bi-Partisan</span>
-                      <div class="profile-body" style="display: flex;margin: 2%;">
-                        <div class="follwers-type" style="min-width: 35%;" >
-                          <span class="d-none d-md-block tagline">60k Followers<mat-icon class="bi-partisan-icon"></mat-icon></span>
-                        </div>
-                        <div class="chart" >
-                        <canvas
-                          style="width: 220px;height: 110px;"
-                          baseChart
-                          chartType="doughnut"
-                          [data]="[60]"
-                          [labels]="['Bi-Partisan']"
-                          [options]="chartOptions"
-                          [legend]="true">
-                          </canvas>
-                        </div>
-                      </div>
-                    </div>
-                </span>
-              </li> -->
+          <ng-container class="tab-content" style="  width: 100%;
+          height: 100%;
+          overflow: hidden;">
+          <ul aria-labelledby="megamenu" style="padding:0% !important;padding: 0 !important;margin: 0; overflow: auto;">
             <div class="stack-container">
               <app-rebuttal-card *ngFor="let rebutal of rebuttalList;let i = index" [attr.data-index]="i"
                class="stack-card card-1" [title]="rebutal.title" [ngStyle]="{'margin-top':rebutal.config.marginsX+'%','margin-bottom':rebutal.config.marginsX+'%',
-               'margin-left':rebutal.config.marginsY+'%','margin-right':rebutal.config.marginsY+'%'}"(click) ="swipeStack(rebutal,i)">
+               'margin-left':rebutal.config.marginsY+'%','margin-right':rebutal.config.marginsY+'%'}"(click) ="swipeStack(rebutal,i)"
+               (mouseover)="addClass($event,i)" (mouseleave)="removeClass($event,i)">
               </app-rebuttal-card>
             </div>
             </ul>

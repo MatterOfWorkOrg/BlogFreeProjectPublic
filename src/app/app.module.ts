@@ -19,6 +19,7 @@ import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './pages/home/home.component';
 import { DiscussionComponent } from './pages/discussion/discussion.component';
 import { DiscussionDetailComponent } from './pages/discussion-detail/discussion-detail.component';
+import { BlankComponent } from './pages/blank/blank.component';
 
 const appRoutes: Routes = [
   { path: 'Profile', component: ProfileViewComponent },
@@ -38,7 +39,8 @@ const appRoutes: Routes = [
     RebuttalCardComponent,
     HomeComponent,
     DiscussionComponent,
-    DiscussionDetailComponent
+    DiscussionDetailComponent,
+    BlankComponent
   ],
   imports: [
     BrowserModule,

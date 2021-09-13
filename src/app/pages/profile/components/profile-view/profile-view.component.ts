@@ -13,7 +13,7 @@ export class ProfileViewComponent implements OnInit {
   };
   rebuttalList :Array<any> = [
     {
-      'title':'Article Title 1',
+      'title':'Sports Event',
       'config': {
         'order': 1,
         'marginsX':0,
@@ -21,14 +21,14 @@ export class ProfileViewComponent implements OnInit {
       }
     },
     {
-      'title':'Article Title 2',
+      'title':'Dance Event',
       'config': {
         'marginsX':0,
           'marginsY':0
       }
     },
     {
-      'title':'Article Title 3',
+      'title':'Music Event',
       'config': {
         'order': 3,
         'marginsX':0,
@@ -49,8 +49,8 @@ export class ProfileViewComponent implements OnInit {
   }
   generateDynamicMargins() {
     this.rebuttalList = this.rebuttalList.map((data:any,index) :any => {
-      let marginsX = index*4;
-      let marginsY = index*(-4);
+      let marginsX = index*5;
+      let marginsY = index*(-5);
         return {
         'title':data.title,
         'config': {
@@ -66,5 +66,16 @@ export class ProfileViewComponent implements OnInit {
     this.rebuttalList[this.rebuttalList.length-1] = rebuttal;
     this.rebuttalList[index] = temp;
     this.generateDynamicMargins();
+  }
+
+  addClass(event:any,index:number): void {
+    if(index !== this.rebuttalList.length-1)
+    event.target.className += ' stack-hover';
+    event.target.className = event.target.className.replace('stack-hover-removed', '');
+  }
+
+  removeClass(event:any,index:number): void {
+    event.target.className = event.target.className.replace('stack-hover', '');
+    event.target.className += ' stack-hover-removed';
   }
 }
